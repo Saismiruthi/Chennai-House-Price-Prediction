@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chennai House Price Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="App.js"></script>
+  <link rel="stylesheet" href="App.css">
+</head>
+<body>
+
+  <div class="bg-overlay"></div>
+
+  <div class="page-wrapper">
+
+    <header class="header">
+      <div class="header-icon">🏠</div>
+      <h1 class="header-title">Chennai House Price Estimator</h1>
+      <p class="header-sub">Get an instant estimate based on location & specs</p>
+    </header>
+
+    <div class="card">
+
+      <!-- Area -->
+      <div class="field-group">
+        <label class="field-label">Area <span class="unit">(sq. ft.)</span></label>
+        <input class="field-input" type="number" id="uiSqft" value="1000" min="100" max="10000">
+        <span class="field-hint" id="sqftHint"></span>
+      </div>
+
+      <!-- BHK -->
+      <div class="field-group">
+        <label class="field-label">BHK</label>
+        <div class="pill-group">
+          <input type="radio" id="bhk1" name="uiBHK" value="1"><label for="bhk1">1</label>
+          <input type="radio" id="bhk2" name="uiBHK" value="2" checked><label for="bhk2">2</label>
+          <input type="radio" id="bhk3" name="uiBHK" value="3"><label for="bhk3">3</label>
+          <input type="radio" id="bhk4" name="uiBHK" value="4"><label for="bhk4">4</label>
+          <input type="radio" id="bhk5" name="uiBHK" value="5"><label for="bhk5">5</label>
+        </div>
+      </div>
+
+      <!-- Bath -->
+      <div class="field-group">
+        <label class="field-label">Bathrooms</label>
+        <div class="pill-group">
+          <input type="radio" id="bath1" name="uiBathrooms" value="1"><label for="bath1">1</label>
+          <input type="radio" id="bath2" name="uiBathrooms" value="2" checked><label for="bath2">2</label>
+          <input type="radio" id="bath3" name="uiBathrooms" value="3"><label for="bath3">3</label>
+          <input type="radio" id="bath4" name="uiBathrooms" value="4"><label for="bath4">4</label>
+          <input type="radio" id="bath5" name="uiBathrooms" value="5"><label for="bath5">5</label>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="field-group">
+        <label class="field-label">Location</label>
+        <select class="field-select" id="uiLocations">
+          <option value="" disabled selected>Choose a location</option>
+        </select>
+      </div>
+
+      <!-- Error -->
+      <div id="uiError" class="error-msg" style="display:none;"></div>
+
+      <!-- Buttons -->
+      <div class="btn-row">
+        <button class="btn-reset" onclick="onReset()" type="button">Reset</button>
+        <button class="btn-estimate" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+      </div>
+
+      <!-- Result -->
+      <div id="uiEstimatedPrice" class="result-box" style="display:none;">
+        <div class="result-label">Estimated Price</div>
+        <div class="result-price" id="resultPrice">--</div>
+        <div class="result-sqft" id="resultSqft"></div>
+      </div>
+
+    </div>
+
+    <footer class="footer">Chennai Real Estate · Predictive Model · 2024</footer>
+
+  </div>
+
+</body>
+</html>
